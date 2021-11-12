@@ -11,8 +11,10 @@ year = int(year)
 # If value not accepted has been enter - error message and print again - else if
 
 #Output
+table = df[df['Year'] == year]
 
-result = df[df['Year'] == year]
+result = table[['Player Names','Goals','League','Matches_Played','Shots']]
+
 #print(result)
 
 #sort by descending order of goals
