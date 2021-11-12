@@ -13,8 +13,11 @@ year = int(year)
 #Output
 
 result = df[df['Year'] == year]
-print(result)
-
-#result = df[df['Player Names'] == 'Luis Suarez']
 #print(result)
 
+#sort by descending order of goals
+result = result.sort_values(
+     by="Goals",
+     ascending=False
+)
+print(result.head(20))
