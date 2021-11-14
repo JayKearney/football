@@ -1,7 +1,9 @@
 import pandas as pd
 import prettytable as pt
+from tabulate import tabulate
 
 df = pd.read_csv('Top-Football-Leagues-Scorers.csv')
+
 
 # User input
 
@@ -22,4 +24,22 @@ result = result.sort_values(
      by="Goals",
      ascending=False
 )
-print(result.head(20))
+result = result.head(20)
+print(tabulate(result, headers="keys",showindex="never", tablefmt="fancy_grid"))
+#print(result.head(20))
+
+league = input('Enter a League name: ')
+
+leagues = df[(df['Year'] == year) & (df['League'] == league)]
+
+leagues = leagues[['League','Player Names','Goals','OnTarget','Shots']]
+
+leagues = leagues.sort_values(
+     by="Goals",
+     ascending=False
+)
+leagues = leagues.head(20)
+print(tabulate(leagues, headers="keys", showindex="never", tablefmt="fancy_grid"))
+
+
+
